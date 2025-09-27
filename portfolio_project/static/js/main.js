@@ -2,35 +2,40 @@
 document.addEventListener('DOMContentLoaded', function () {
     // --- THEME SWITCH LOGIC ---
     const themeToggle = document.getElementById('checkbox');
-    const currentTheme = localStorage.getItem('theme');
-
-    if (currentTheme) {
-        document.body.classList.add(currentTheme);
-        if (currentTheme === 'light-mode') {
-            themeToggle.checked = true;
+    if (themeToggle) {
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            document.body.classList.add(currentTheme);
+            if (currentTheme === 'light-mode') {
+                themeToggle.checked = true;
+            }
         }
+        themeToggle.addEventListener('change', function () {
+            if (this.checked) {
+                document.body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light-mode');
+            } else {
+                document.body.classList.remove('light-mode');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
     }
 
-    themeToggle.addEventListener('change', function () {
-        if (this.checked) {
-            document.body.classList.add('light-mode');
-            localStorage.setItem('theme', 'light-mode');
-        } else {
-            document.body.classList.remove('light-mode');
-            localStorage.setItem('theme', 'dark');
-        }
-    });
-
-    // --- TYPED.JS ANIMATION ---
-    new Typed('#typed-text', {
-        strings: ["beautiful websites.", "scalable backends.", "great content."],
-        typeSpeed: 70,
-        backSpeed: 30,
-        loop: true,
-        smartBackspace: true,
-    });
+    // --- TYPED.JS ANIMATION (CORRECTED) ---
+    // Only run the typing animation if the element exists on the page
+    const typedElement = document.getElementById('typed-text');
+    if (typedElement) {
+        new Typed('#typed-text', {
+            strings: ["Programmer.", "Developer."],
+            typeSpeed: 70,
+            backSpeed: 30,
+            loop: true,
+            smartBackspace: true,
+        });
+    }
 
     // --- PARTICLES.JS INITIALIZATION ---
+    // This will now run correctly on all pages
     particlesJS("particles-js", {
         "particles": {
             "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },

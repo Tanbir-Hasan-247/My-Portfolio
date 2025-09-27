@@ -1,7 +1,18 @@
-/* static/css/style.css */
+/*
+========================================
+Main Stylesheet for Portfolio
+========================================
+1. Global Setup & Imports
+2. Layout & General Utilities
+3. Page Sections (Hero, About, etc.)
+4. Coding & Tech Profiles
+5. Blog Pages (List, Detail, Modal)
+========================================
+*/
+
+/* --- 1. Global Setup & Imports --- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap');
 
-/* --- THEME & COLOR VARIABLES --- */
 :root {
     --bg-color: #121212;
     --surface-color: #1e1e1e;
@@ -33,7 +44,9 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
 
-/* --- PARTICLE BACKGROUND --- */
+/* --- 2. Layout & General Utilities --- */
+
+/* Particle Background */
 #particles-js {
     position: fixed;
     width: 100%;
@@ -43,7 +56,13 @@ h1, h2, h3, h4, h5, h6 {
     z-index: -1;
 }
 
-/* --- ANIMATIONS --- */
+/* Section Titles */
+.section-title {
+    font-weight: 900;
+    margin-bottom: 3rem;
+}
+
+/* Scroll Animations */
 .reveal-on-scroll {
     opacity: 0;
     transform: translateY(30px);
@@ -54,7 +73,7 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(0);
 }
 
-/* --- NAVIGATION BAR --- */
+/* Navigation Bar */
 .navbar {
     transition: background-color 0.3s ease;
 }
@@ -73,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary-text);
 }
 
-/* --- THEME TOGGLE SWITCH --- */
+/* Theme Toggle Switch */
 .theme-switch-wrapper {
     display: flex;
     align-items: center;
@@ -84,66 +103,33 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     width: 50px;
 }
-.theme-switch input {
-    display: none;
-}
+.theme-switch input { display: none; }
 .slider {
     background-color: var(--surface-color);
     border: 1px solid var(--border-color);
-    bottom: 0; left: 0; right: 0; top: 0;
     position: absolute;
     cursor: pointer;
+    inset: 0;
     transition: .4s;
     border-radius: 34px;
 }
 .slider:before {
     background-color: var(--secondary-text);
-    bottom: 2px; left: 2px;
-    content: "";
-    height: 18px; width: 18px;
     position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 2px;
     transition: .4s;
     border-radius: 50%;
-}
-input:checked + .slider {
-    background-color: var(--surface-color);
 }
 input:checked + .slider:before {
     transform: translateX(26px);
     background-color: var(--gradient-start);
 }
 
-
-/* --- HERO SECTION & TYPED.JS --- */
-#hero {
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    text-align: center;
-}
-.avatar {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid var(--surface-color);
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
-}
-.hero-title {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 900;
-    line-height: 1.2;
-}
-.gradient-text {
-    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-}
-.hero-title .typed-cursor {
-    font-weight: 400;
-    color: var(--secondary-text);
-}
+/* General Buttons */
 .hero-buttons .btn {
     padding: 12px 30px;
     border-radius: 50px;
@@ -172,23 +158,57 @@ input:checked + .slider:before {
     border-color: var(--primary-text);
 }
 
+/* --- 3. Page Sections --- */
 
-/* --- SECTIONS --- */
-.section-title {
+/* Hero Section */
+#hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--surface-color);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 900;
-    margin-bottom: 3rem;
+    line-height: 1.2;
 }
-.tech-logos i {
-    font-size: 40px;
+.gradient-text {
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.hero-title .typed-cursor {
+    font-weight: 400;
     color: var(--secondary-text);
-    transition: all 0.3s ease;
-}
-.tech-logos i:hover {
-    color: var(--primary-text);
-    transform: scale(1.1);
 }
 
-/* --- SERVICES SECTION --- */
+/* About Me Section */
+#about img {
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+}
+.about-stat {
+    text-align: center;
+    padding: 1rem;
+}
+.about-stat h3 {
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+.about-stat p {
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+}
+
+/* Services Section */
 .service-card {
     background-color: var(--surface-color);
     border: 1px solid var(--border-color);
@@ -205,15 +225,9 @@ input:checked + .slider:before {
 .service-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
-    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
 }
 
-
-/* --- PROJECTS SECTION --- */
+/* Projects Section */
 .project-card {
     background-color: var(--surface-color);
     border: 1px solid var(--border-color);
@@ -249,7 +263,7 @@ input:checked + .slider:before {
     padding: 3rem;
 }
 
-/* --- EXPERIENCE TIMELINE --- */
+/* Experience Timeline */
 .experience-timeline {
     position: relative;
     padding-left: 30px;
@@ -286,23 +300,7 @@ input:checked + .slider:before {
     object-fit: contain;
 }
 
-/* --- BLOG POST STYLING --- */
-.blog-post-content img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin: 1.5rem 0;
-}
-.blog-post-content a {
-    color: var(--gradient-start);
-    text-decoration: none;
-    border-bottom: 1px solid var(--gradient-end);
-}
-.blog-post-content a:hover {
-    color: var(--gradient-end);
-}
-
-/* --- CONTACT SECTION --- */
+/* Contact Section */
 .social-icons a {
     color: var(--secondary-text);
     font-size: 1.5rem;
@@ -313,3 +311,202 @@ input:checked + .slider:before {
     color: var(--primary-text);
     transform: translateY(-5px);
 }
+
+/* --- 4. Coding & Tech Profiles --- */
+
+/* Tech Experience Icons */
+.fa-tech-logos i {
+    font-size: 40px;
+    color: var(--secondary-text);
+    transition: all 0.3s ease;
+}
+.fa-tech-logos i:hover {
+    color: var(--primary-text);
+    transform: scale(1.1);
+}
+
+/* Coding Profile Cards */
+.profile-card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.profile-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+.profile-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.stat-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary-text);
+}
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--secondary-text);
+    text-transform: uppercase;
+}
+
+/* --- 5. Blog Pages --- */
+
+/* Blog List Page */
+.blog-hero {
+    padding: 4rem 0;
+    text-align: center;
+}
+.blog-post-preview {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.blog-post-preview:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+.blog-post-preview-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.blog-post-preview-content {
+    padding: 2.5rem;
+}
+.post-meta {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--secondary-text);
+    margin-bottom: 0.5rem;
+}
+.post-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary-text);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+.post-title:hover {
+    color: var(--gradient-start);
+}
+.read-more-link {
+    font-weight: 600;
+    color: var(--gradient-start);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.read-more-link:hover {
+    color: var(--gradient-end);
+}
+
+/* Blog Detail Page */
+.blog-post-header {
+    padding: 2rem 0;
+}
+.blog-detail-image {
+    border: 1px solid var(--border-color);
+}
+.blog-detail-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--secondary-text);
+}
+.blog-detail-content h2,
+.blog-detail-content h3,
+.blog-detail-content h4 {
+    color: var(--primary-text);
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+.blog-detail-content a {
+    color: var(--gradient-start);
+    text-decoration: underline;
+    text-decoration-color: var(--gradient-end);
+}
+.blog-detail-content a:hover {
+    color: var(--gradient-end);
+}
+.blog-detail-content hr {
+    border-color: var(--border-color);
+    opacity: 0.5;
+}
+
+/* Blog Modal (if used) */
+.modal-content {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    color: var(--primary-text);
+}
+.modal-header {
+    border-bottom: 1px solid var(--border-color);
+}
+.modal-title {
+    color: var(--primary-text);
+    font-weight: 700;
+}
+.btn-close {
+    filter: var(--primary-text) == '#ffffff' ? invert(1) grayscale(100%) brightness(200%) : none;
+}
+
+/* ADD THIS TO THE END OF static/css/style.css */
+
+/* --- FANCY BLOG LIST STYLING --- */
+
+/* Featured Post Card */
+.featured-post-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    color: #fff;
+    min-height: 450px;
+    display: flex;
+    align-items: flex-end;
+    border: 1px solid var(--border-color);
+}
+.featured-post-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+    z-index: 2;
+}
+.featured-post-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: transform 0.4s ease;
+}
+.featured-post-card:hover .featured-post-image {
+    transform: scale(1.05);
+}
+.featured-post-content {
+    position: relative;
+    z-index: 3;
+    padding: 2.5rem;
+}
+.featured-post-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1.2;
+    color: #fff;
+}
+.featured-post-excerpt {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+

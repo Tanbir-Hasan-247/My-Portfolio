@@ -1,201 +1,281 @@
+{% extends 'portfolio/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Software Engineer</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% block content %}
+<section id="hero">
+    <div class="row w-100 justify-content-center">
+        <div class="col-lg-10 text-center">
+            <img src="{% static 'images/Hasan.png' %}" alt="Avatar" class="avatar mb-4 ">
+            <h1 class="hero-title reveal-on-scroll">
+                I am a <span id="typed-text" class="gradient-text"></span>
+            </h1>
+            <p class="lead text-secondary my-4 reveal-on-scroll">A seasoned full-stack software engineer with
+                over 8 years of hands-on experience in cloud computing and back-end development.</p>
 
-    <style>
-        .fa-tech-logos i {
-            font-size: 40px;
-            color: var(--secondary-text);
-            transition: all 0.3s ease;
-        }
-        .fa-tech-logos i:hover {
-            color: var(--primary-text);
-            transform: scale(1.1);
-        }
-    </style>
-</head>
+            <div class="hero-buttons reveal-on-scroll">
+                <a href="#contact" class="btn btn-primary-custom">Get In Touch</a>
+                <a href="{% static 'cv/your_cv.pdf' %}" class="btn btn-secondary-custom" download>Download
+                    CV</a>
+            </div>
 
-<body>
-    <div id="particles-js"></div>
-
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">YN.</a>
-            <ul class="navbar-nav ms-auto flex-row align-items-center">
-                <li class="nav-item me-3"><a class="nav-link" href="#projects">Projects</a></li>
-                <li class="nav-item me-3"><a class="nav-link" href="#experience">Experience</a></li>
-                <li class="nav-item me-3"><a class="nav-link" href="{% url 'blog_list' %}">Blog</a></li>
-                <li class="nav-item me-3"><a class="nav-link" href="#contact">Contact</a></li>
-                <li class="nav-item">
-                    <div class="theme-switch-wrapper">
-                        <label class="theme-switch" for="checkbox">
-                            <input type="checkbox" id="checkbox" />
-                            <div class="slider round"></div>
-                        </label>
-                    </div>
-                </li>
-            </ul>
         </div>
-    </nav>
+    </div>
+</section>
 
-    <main class="container">
-        <section id="hero">
-            <div class="row w-100 justify-content-center">
-                <div class="col-lg-10 text-center">
-                    <img src="{% static 'images/avatar.jpg' %}" alt="Avatar" class="avatar mb-4 reveal-on-scroll">
-                    <h1 class="hero-title reveal-on-scroll">
-                        I build <span id="typed-text" class="gradient-text"></span>
-                    </h1>
-                    <p class="lead text-secondary my-4 reveal-on-scroll">A seasoned full-stack software engineer with
-                        over 8 years of hands-on experience in cloud computing and back-end development.</p>
-
-                    <div class="hero-buttons reveal-on-scroll">
-                        <a href="#contact" class="btn btn-primary-custom">Get In Touch</a>
-                        <a href="{% static 'cv/your_cv.pdf' %}" class="btn btn-secondary-custom" download>Download
-                            CV</a>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="services" class="py-5">
-            <h2 class="section-title text-center reveal-on-scroll">What I Offer</h2>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-4 reveal-on-scroll">
-                    <div class="service-card">
-                        <i class="bi bi-code-slash service-icon"></i>
-                        <h5 class="card-title">Web Development</h5>
-                        <p class="card-text text-secondary">Crafting responsive and robust web applications from front
-                            to back.</p>
+<section id="about" class="py-5">
+    <div class="row align-items-center">
+        <div class="col-lg-5 reveal-on-scroll">
+            <img src="{% static 'images/Tanbir.png' %}" class="img-fluid" alt="A picture of me">
+        </div>
+        <div class="col-lg-7 mt-4 mt-lg-0 reveal-on-scroll" style="transition-delay: 0.1s;">
+            <h2 class="section-title">About Me</h2>
+            <p class="text-secondary">Hello! I'm a passionate developer who loves turning complex problems into
+                simple, beautiful, and intuitive designs. My journey in tech started with a fascination for how
+                things work, which led me to dive deep into backend systems and cloud infrastructure. I'm a
+                lifelong learner, always excited to pick up new skills and technologies.</p>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="about-stat">
+                        <h3 class="gradient-text">08+</h3>
+                        <p>Years Experience</p>
                     </div>
                 </div>
-                <div class="col-md-4 reveal-on-scroll" style="transition-delay: 0.1s;">
-                    <div class="service-card">
-                        <i class="bi bi-server service-icon"></i>
-                        <h5 class="card-title">Backend Systems</h5>
-                        <p class="card-text text-secondary">Designing scalable APIs and database architectures for
-                            performance.</p>
+                <div class="col-md-4">
+                    <div class="about-stat">
+                        <h3 class="gradient-text">50+</h3>
+                        <p>Projects Completed</p>
                     </div>
                 </div>
-                <div class="col-md-4 reveal-on-scroll" style="transition-delay: 0.2s;">
-                    <div class="service-card">
-                        <i class="bi bi-pencil-square service-icon"></i>
-                        <h5 class="card-title">Content Creation</h5>
-                        <p class="card-text text-secondary">Writing technical blogs and tutorials to share knowledge
-                            with the community.</p>
+                <div class="col-md-4">
+                    <div class="about-stat">
+                        <h3 class="gradient-text">100%</h3>
+                        <p>Client Satisfaction</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
-        <section id="tech-experience" class="text-center py-5">
-            <h2 class="section-title text-center reveal-on-scroll">EXPERIENCED WITH</h2>
-            <div class="d-flex justify-content-center align-items-center flex-wrap gap-4 mt-4 fa-tech-logos reveal-on-scroll">
-                <i class="fa-brands fa-python" title="Python"></i>
-                <i class="fa-brands fa-java" title="Java"></i>
-                <i class="fa-solid fa-c" title="C"></i>
-                <i class="fa-brands fa-cuttlefish" title="C++"></i>
-                <i class="fa-brands fa-js-square" title="JavaScript"></i>
-                <i class="fa-brands fa-html5" title="HTML5"></i>
-                <i class="fa-brands fa-css3-alt" title="CSS3"></i>
-                <i class="fa-brands fa-bootstrap" title="Bootstrap"></i>
-                <i class="fa-brands fa-github" title="GitHub"></i>
+<section id="services" class="py-5">
+    <h2 class="section-title text-center reveal-on-scroll">What I Offer</h2>
+    <div class="row g-4 justify-content-center">
+        <div class="col-md-4 reveal-on-scroll">
+            <div class="service-card">
+                <i class="bi bi-code-slash service-icon"></i>
+                <h5 class="card-title">Web Development</h5>
+                <p class="card-text text-secondary">Crafting responsive and robust web applications from front
+                    to back.</p>
             </div>
-        </section>
-        <section id="projects" class="py-5">
-            <h2 class="section-title text-center reveal-on-scroll">PROJECTS</h2>
-            {% if featured_project %}
-            <div class="featured-project-wrapper reveal-on-scroll mb-5">
-                <div class="row g-0 align-items-center">
-                    <div class="col-lg-7">
-                        <img src="{{ featured_project.image.url }}" class="img-fluid featured-project-image"
-                            alt="{{ featured_project.title }}">
+        </div>
+        <div class="col-md-4 reveal-on-scroll" style="transition-delay: 0.1s;">
+            <div class="service-card">
+                <i class="bi bi-server service-icon"></i>
+                <h5 class="card-title">Backend Systems</h5>
+                <p class="card-text text-secondary">Designing scalable APIs and database architectures for
+                    performance.</p>
+            </div>
+        </div>
+        <div class="col-md-4 reveal-on-scroll" style="transition-delay: 0.2s;">
+            <div class="service-card">
+                <i class="bi bi-pencil-square service-icon"></i>
+                <h5 class="card-title">Content Creation</h5>
+                <p class="card-text text-secondary">Writing technical blogs and tutorials to share knowledge
+                    with the community.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="tech-experience" class="text-center py-5">
+    <h2 class="section-title text-center reveal-on-scroll">EXPERIENCED WITH</h2>
+    <div class="d-flex justify-content-center align-items-center flex-wrap gap-4 mt-4 fa-tech-logos reveal-on-scroll">
+        <i class="fa-brands fa-python" title="Python"></i>
+        <i class="fa-brands fa-java" title="Java"></i>
+        <i class="fa-solid fa-c" title="C"></i>
+        <i class="fa-brands fa-cuttlefish" title="C++"></i>
+        <i class="fa-brands fa-js-square" title="JavaScript"></i>
+        <i class="fa-brands fa-html5" title="HTML5"></i>
+        <i class="fa-brands fa-css3-alt" title="CSS3"></i>
+        <i class="fa-brands fa-bootstrap" title="Bootstrap"></i>
+        <i class="fa-brands fa-github" title="GitHub"></i>
+    </div>
+</section>
+
+<section id="coding-profiles" class="py-5">
+    <h2 class="section-title text-center reveal-on-scroll">Coding Profiles</h2>
+    <div class="row g-4 justify-content-center">
+
+        {% if codeforces_data %}
+        <div class="col-lg-4 col-md-6 reveal-on-scroll">
+            <a href="{{ codeforces_data.profile_url }}" target="_blank" class="text-decoration-none">
+                <div class="profile-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="{{ codeforces_data.profile_pic_url }}" alt="Codeforces Profile Picture"
+                            class="profile-logo">
+                        <div class="ms-3">
+                            <h5 class="card-title mb-0">Codeforces</h5>
+                            <p class="text-secondary">{{ codeforces_data.handle }}</p>
+                        </div>
                     </div>
-                    <div class="col-lg-5">
-                        <div class="featured-project-info">
-                            <h6 class="text-secondary">Featured Project</h6>
-                            <h3>{{ featured_project.title }}</h3>
-                            <p class="text-secondary">{{ featured_project.subtitle }}</p>
-                            <a href="{{ featured_project.link }}" class="btn btn-primary-custom" target="_blank">View
-                                Project <i class="bi bi-arrow-up-right"></i></a>
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <div class="stat-value">{{ codeforces_data.rating }}</div>
+                            <div class="stat-label">Rating</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-value">{{ codeforces_data.maxRating }}</div>
+                            <div class="stat-label">Max Rating</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-value">{{ codeforces_data.solved_count }}</div>
+                            <div class="stat-label">Solved</div>
                         </div>
                     </div>
                 </div>
-            </div>
-            {% endif %}
+            </a>
+        </div>
+        {% endif %}
 
-            <div class="row g-4">
-                {% for project in other_projects %}
-                <div class="col-md-6 reveal-on-scroll">
-                    <a href="{{ project.link }}" class="text-decoration-none">
-                        <div class="card project-card">
-                            <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ project.title }}</h5>
-                                <p class="card-text text-secondary">{{ project.subtitle }}</p>
-                            </div>
+        {% if leetcode_data %}
+        <div class="col-lg-4 col-md-6 reveal-on-scroll" style="transition-delay: 0.1s;">
+            <a href="{{ leetcode_data.profile_url }}" target="_blank" class="text-decoration-none">
+                <div class="profile-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="{{ leetcode_data.profile_pic_url }}" alt="LeetCode Profile Picture"
+                            class="profile-logo">
+                        <div class="ms-3">
+                            <h5 class="card-title mb-0">LeetCode</h5>
+                            <p class="text-secondary">{{ leetcode_data.handle }}</p>
                         </div>
-                    </a>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <div class="stat-value">{{ leetcode_data.totalSolved }}</div>
+                            <div class="stat-label">Solved</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-value">{{ leetcode_data.acceptanceRate|floatformat:1 }}%</div>
+                            <div class="stat-label">Accept %</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-value">{{ leetcode_data.ranking }}</div>
+                            <div class="stat-label">Ranking</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endif %}
+
+        {% if codechef_data %}
+        <div class="col-lg-4 col-md-6 reveal-on-scroll" style="transition-delay: 0.2s;">
+            <a href="{{ codechef_data.profile_url }}" target="_blank" class="text-decoration-none">
+                <div class="profile-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="{{ codechef_data.profile_pic_url }}" alt="CodeChef Profile Picture"
+                            class="profile-logo">
+                        <div class="ms-3">
+                            <h5 class="card-title mb-0">CodeChef</h5>
+                            <p class="text-secondary">{{ codechef_data.handle }}</p>
+                        </div>
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <div class="stat-value">{{ codechef_data.rating }}</div>
+                            <div class="stat-label">Rating</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-value">{{ codechef_data.max_rating }}</div>
+                            <div class="stat-label">Max Rating</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-value">{{ codechef_data.solved_count }}</div>
+                            <div class="stat-label">Solved</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endif %}
+
+    </div>
+</section>
+
+<section id="projects" class="py-5">
+    <h2 class="section-title text-center reveal-on-scroll">PROJECTS</h2>
+    {% if featured_project %}
+    <div class="featured-project-wrapper reveal-on-scroll mb-5">
+        <div class="row g-0 align-items-center">
+            <div class="col-lg-7">
+                <img src="{{ featured_project.image.url }}" class="img-fluid featured-project-image"
+                    alt="{{ featured_project.title }}">
+            </div>
+            <div class="col-lg-5">
+                <div class="featured-project-info">
+                    <h6 class="text-secondary">Featured Project</h6>
+                    <h3>{{ featured_project.title }}</h3>
+                    <p class="text-secondary">{{ featured_project.subtitle }}</p>
+                    <a href="{{ featured_project.link }}" class="btn btn-primary-custom" target="_blank">View
+                        Project <i class="bi bi-arrow-up-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <div class="row g-4">
+        {% for project in other_projects %}
+        <div class="col-md-6 reveal-on-scroll">
+            <a href="{{ project.link }}" class="text-decoration-none">
+                <div class="card project-card">
+                    <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ project.title }}</h5>
+                        <p class="card-text text-secondary">{{ project.subtitle }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="experience" class="py-5">
+    <h2 class="section-title text-center reveal-on-scroll">EXPERIENCE</h2>
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="experience-timeline">
+                {% for exp in experiences %}
+                <div class="timeline-item reveal-on-scroll">
+                    <div class="d-flex align-items-start mb-2">
+                        {% if exp.logo_image %}
+                        <img src="{{ exp.logo_image.url }}" alt="{{ exp.company }} logo" class="timeline-logo me-3">
+                        {% endif %}
+                        <div class="flex-grow-1">
+                            <h5 class="mb-0">{{ exp.role }}</h5>
+                            <p class="text-secondary mb-1">{{ exp.company }}</p>
+                            <small class="text-secondary">{{ exp.start_date }} - {{ exp.end_date }}</small>
+                        </div>
+                    </div>
+                    <p class="text-secondary">{{ exp.description }}</p>
                 </div>
                 {% endfor %}
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
-        <section id="experience" class="py-5">
-            <h2 class="section-title text-center reveal-on-scroll">EXPERIENCE</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="experience-timeline">
-                        {% for exp in experiences %}
-                        <div class="timeline-item reveal-on-scroll">
-                            <div class="d-flex align-items-start mb-2">
-                                {% if exp.logo_image %}
-                                <img src="{{ exp.logo_image.url }}" alt="{{ exp.company }} logo"
-                                    class="timeline-logo me-3">
-                                {% endif %}
-                                <div class="flex-grow-1">
-                                    <h5 class="mb-0">{{ exp.role }}</h5>
-                                    <p class="text-secondary mb-1">{{ exp.company }}</p>
-                                    <small class="text-secondary">{{ exp.start_date }} - {{ exp.end_date }}</small>
-                                </div>
-                            </div>
-                            <p class="text-secondary">{{ exp.description }}</p>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </section>
+<section id="contact" class="text-center py-5">
+    <h2 class="section-title text-center reveal-on-scroll">Contact</h2>
+    <p class="lead text-secondary reveal-on-scroll">I'm currently available for freelance work. Feel free to
+        reach out.</p>
+    <a href="mailto:your.email@example.com"
+        class="text-primary text-decoration-none fs-4 reveal-on-scroll">your.email@example.com</a>
+    <div class="social-icons mt-4 reveal-on-scroll">
+        <a href="#"><i class="bi bi-linkedin"></i></a>
+        <a href="#"><i class="bi bi-github"></i></a>
+        <a href="#"><i class="bi bi-twitter-x"></i></a>
+    </div>
+</section>
 
-        <section id="contact" class="text-center py-5">
-            <h2 class="section-title reveal-on-scroll">Contact</h2>
-            <p class="lead text-secondary reveal-on-scroll">I'm currently available for freelance work. Feel free to
-                reach out.</p>
-            <a href="mailto:your.email@example.com"
-                class="text-primary text-decoration-none fs-4 reveal-on-scroll">your.email@example.com</a>
-            <div class="social-icons mt-4 reveal-on-scroll">
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-                <a href="#"><i class="bi bi-github"></i></a>
-                <a href="#"><i class="bi bi-twitter-x"></i></a>
-            </div>
-        </section>
-
-    </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="{% static 'js/main.js' %}"></script>
-</body>
-
-</html>
+{% endblock %}
